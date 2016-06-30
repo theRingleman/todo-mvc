@@ -10,9 +10,11 @@
   <section class="main">
     <ul class="todo-list">
       <% @list.items.each do |item| %>
-        <li>
+        <li class="<%= "completed" if item.complete?  %>">
           <div class="view">
-            <input type="checkbox" class="toggle">
+            <form action="/">
+              <input type="checkbox" class="toggle" <%= "checked='check'" if item.complete? %>>
+            </form>
             <label><%= item.description %></label>
           </div>
         </li>
